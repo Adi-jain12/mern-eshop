@@ -1,4 +1,3 @@
-import "./App.css";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 
@@ -12,8 +11,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route element={<AppLayout />}>
-          <Route index element={<Navigate replace to="/" />} />
-          <Route path="/" element={<HomePage />} />
+          <Route index element={<Navigate replace to="/home" />} />
+          <Route path="/home" element={<HomePage />} />
           <Route path="products" element={<Products />} />
         </Route>
 
