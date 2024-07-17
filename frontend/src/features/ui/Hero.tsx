@@ -1,4 +1,4 @@
-import hero from "../assets/benetton.webp";
+import hero from "../../assets/benetton.webp";
 
 const Hero = () => {
   return (

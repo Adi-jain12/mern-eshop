@@ -1,103 +1,28 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import Dashboard from "./pages/Dashboard";
-import Account from "./pages/Account";
-import Bookings from "./pages/Bookings";
-import Cabins from "./pages/Cabins";
-import Login from "./pages/Login";
-import Settings from "./pages/Settings";
+import HomePage from "./pages/HomePage";
+
+import Products from "./pages/Products";
+
 import PageNotFound from "./pages/PageNotFound";
-import Users from "./pages/Users";
-import GlobalStyles from "./styles/GlobalStyles";
-import AppLayout from "./ui/AppLayout";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { Toaster } from "react-hot-toast";
-import Booking from "./pages/Booking";
-import Checkin from "./pages/Checkin";
+import AppLayout from "./features/ui/AppLayout";
+import SearchPage from "./pages/SearchPage";
 
-// Tanstack query configuration
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      // staleTime: 60 * 1000, //to set cache time for how long the queries should stay fresh here i.e 60 seconds
-      staleTime: 0, //to set cache time for how long the queries should stay fresh here i.e 60 seconds
-    },
-  },
-});
-
-const App = () => {
+function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <ReactQueryDevtools />
-      <GlobalStyles />
-      <BrowserRouter>
-        <Routes>
-          <Route element={<AppLayout />}>
-            <Route index element={<Navigate replace to="dashboard" />} />
-            <Route path="dashboard" element={<Dashboard />} />
-            <Route path="account" element={<Account />} />
-            <Route path="bookings" element={<Bookings />} />
-            <Route path="bookings/:bookingId" element={<Booking />} />
-            <Route path="checkin/:bookingId" element={<Checkin />} />
-            <Route path="settings" element={<Settings />} />
-            <Route path="users" element={<Users />} />
-            <Route index element={<Navigate replace to="/home" />} />
-            <Route path="/home" element={<HomePage />} />
-            <Route path="products" element={<Products />} />
-          </Route>
-          <Route path="login" element={<Login />} />
-          <Route path="*" element={<PageNotFound />} />
-        </Routes>
-      </BrowserRouter>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<AppLayout />}>
+          <Route index element={<Navigate replace to="home" />} />
+          <Route path="home" element={<HomePage />} />
+          <Route path="products" element={<Products />} />
+        </Route>
 
-      <Toaster
-        position="top-center"
-        gutter={12}
-        containerStyle={{ margin: "8px" }}
-        toastOptions={{
-          success: {
-            duration: 3000,
-          },
-          error: {
-            duration: 5000,
-          },
-          style: {
-            fontSize: "16px",
-            maxWidth: "500px",
-            padding: "16px 24px",
-            backgroundColor: "var(--color-grey-0)",
-            color: "var(--color-grey-700)",
-          },
-        }}
-      />
-    </QueryClientProvider>
+        <Route path="search" element={<SearchPage />} />
+
+        <Route path="*" element={<PageNotFound />} />
+      </Routes>
+    </BrowserRouter>
   );
-};
+}
 
 export default App;
-
-// import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-// import HomePage from "./pages/HomePage";
-
-// import Products from "./pages/Products";
-
-// import PageNotFound from "./pages/PageNotFound";
-// import AppLayout from "./components/AppLayout";
-
-// function App() {
-//   return (
-//     <BrowserRouter>
-//       <Routes>
-//         <Route element={<AppLayout />}>
-//           <Route index element={<Navigate replace to="/home" />} />
-//           <Route path="/home" element={<HomePage />} />
-//           <Route path="products" element={<Products />} />
-//         </Route>
-
-//         <Route path="*" element={<PageNotFound />} />
-//       </Routes>
-//     </BrowserRouter>
-//   );
-// }
-
-// export default App;
