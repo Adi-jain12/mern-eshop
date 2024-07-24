@@ -1,11 +1,9 @@
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import HomePage from "./pages/HomePage";
-
-import Products from "./pages/Products";
-
-import PageNotFound from "./pages/PageNotFound";
-import AppLayout from "./features/ui/AppLayout";
-import SearchPage from "./pages/SearchPage";
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import AppLayout from './features/ui/AppLayout';
+import HomePage from './pages/HomePage';
+import PageNotFound from './pages/PageNotFound';
+import Products from './pages/Products';
+import SearchPage from './pages/SearchPage';
 
 function App() {
   return (
