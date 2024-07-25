@@ -1,25 +1,25 @@
 import { Label } from '@/components/ui/label';
-import { categoriesOptions } from '@/config/products-filter-options';
+import { discountOptions } from '@/config/products-filter-options';
 
-const CategoryFilter = () => {
+const DiscountFilter = () => {
 	return (
 		<div className="border-b border-slate-300">
-			<h4 className="text-md font-bold mb-2">Categories</h4>
-			{categoriesOptions.map((category) => (
-				<div key={category} className="flex">
+			<h4 className="text-md font-bold mb-2">Discount Range</h4>
+			{discountOptions.map((discount) => (
+				<div key={discount.id} className="flex">
 					<input
-						id={`category_${category}`}
+						id={`discount_${discount.label}`}
 						type="checkbox"
 						// checked={selectedCategories.includes(category)}
-						value={category}
+						value={discount.min}
 						//   onChange={handleCategoriesFilterChange}
 					/>
 
 					<Label
-						htmlFor={`category_${category}`}
+						htmlFor={`discount_${discount.label}`}
 						className="flex flex-1 items-center cursor-pointer text-sm rounded-full px-4 py-1 font-semibold"
 					>
-						{category}
+						{discount.label}
 					</Label>
 				</div>
 			))}
@@ -27,4 +27,4 @@ const CategoryFilter = () => {
 	);
 };
 
-export default CategoryFilter;
+export default DiscountFilter;
