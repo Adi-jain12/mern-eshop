@@ -6,21 +6,41 @@ import Products from './pages/Products';
 import SearchPage from './pages/SearchPage';
 
 function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route element={<AppLayout />}>
-          <Route index element={<Navigate replace to="home" />} />
-          <Route path="home" element={<HomePage />} />
-          <Route path="products" element={<Products />} />
-        </Route>
+	return (
+		<BrowserRouter>
+			<Routes>
+				{/* <Route element={<AppLayout showHero={false} />}> */}
+				<Route index element={<Navigate replace to="home" />} />
+				<Route
+					path="home"
+					element={
+						<AppLayout showHero={true}>
+							<HomePage />
+						</AppLayout>
+					}
+				/>
+				<Route
+					path="products"
+					element={
+						<AppLayout>
+							<Products />
+						</AppLayout>
+					}
+				/>
+				<Route
+					path="search"
+					element={
+						<AppLayout>
+							<SearchPage />
+						</AppLayout>
+					}
+				/>
+				{/* </Route> */}
 
-        <Route path="search" element={<SearchPage />} />
-
-        <Route path="*" element={<PageNotFound />} />
-      </Routes>
-    </BrowserRouter>
-  );
+				<Route path="*" element={<PageNotFound />} />
+			</Routes>
+		</BrowserRouter>
+	);
 }
 
 export default App;

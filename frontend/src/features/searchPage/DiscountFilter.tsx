@@ -3,7 +3,7 @@ import { discountOptions } from '@/config/products-filter-options';
 
 const DiscountFilter = () => {
 	return (
-		<div className="border-b border-slate-300">
+		<div>
 			<h4 className="text-md font-bold mb-2">Discount Range</h4>
 			{discountOptions.map((discount) => (
 				<div key={discount.id} className="flex">
