@@ -1,9 +1,9 @@
 export const categoriesOptions = [
-	'T-shirts',
-	'Shirts',
-	'Jeans',
-	'Trousers',
-	'Shorts',
+	{ id: 1, label: 'T-shirts' },
+	{ id: 2, label: 'Shirts' },
+	{ id: 3, label: 'Jeans' },
+	{ id: 4, label: 'Trousers' },
+	{ id: 5, label: 'Shorts' },
 ];
 
 export const priceOptions = [

@@ -1,5 +1,5 @@
 const SORT_OPTIONS = [
-	{ label: 'Sort By', value: '' },
+	{ label: 'Recommended', value: 'recommended' },
 	{
 		label: 'Price : Low to High',
 		value: 'regularPrice-asc',
@@ -31,6 +31,7 @@ const SortingOptions = ({ selectedSortingOption, onChangeOption }: Props) => {
 			<select
 				className="p-2 border rounded-md w-full"
 				value={selectedSortingOption}
+				// defaultValue="Sort By :"
 				onChange={(event) =>
 					onChangeOption(event.target.value ? event.target.value : undefined)
 				}
