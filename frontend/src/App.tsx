@@ -1,9 +1,11 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import AppLayout from './features/ui/AppLayout';
 import HomePage from './pages/HomePage';
-import PageNotFound from './pages/PageNotFound';
-import Products from './pages/Products';
 import SearchPage from './pages/SearchPage';
+import PageNotFoundPage from './pages/PageNotFoundPage';
+import ProductsPage from './pages/ProductsPage';
+import ProductDetailsPage from './pages/ProductDetailsPage';
+import CheckoutPage from './pages/CheckoutPage';
 
 function App() {
 	return (
@@ -23,7 +25,7 @@ function App() {
 					path="products"
 					element={
 						<AppLayout>
-							<Products />
+							<ProductsPage />
 						</AppLayout>
 					}
 				/>
@@ -35,9 +37,20 @@ function App() {
 						</AppLayout>
 					}
 				/>
+
+				<Route
+					path="details/:id"
+					element={
+						<AppLayout>
+							<ProductDetailsPage />
+						</AppLayout>
+					}
+				/>
+
+				<Route path="checkout" element={<CheckoutPage />} />
 				{/* </Route> */}
 
-				<Route path="*" element={<PageNotFound />} />
+				<Route path="*" element={<PageNotFoundPage />} />
 			</Routes>
 		</BrowserRouter>
 	);
