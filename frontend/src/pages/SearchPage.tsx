@@ -50,7 +50,7 @@ const SearchPage = () => {
 					<MainContent />
 				</div>
 
-				<div className="">
+				<div>
 					<Pagination count={50} />
 				</div>
 			</div>

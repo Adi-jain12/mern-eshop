@@ -22,7 +22,7 @@ const Cart = () => {
 					</button>
 				</div>
 				<button className="mt-6 bg-red-500 text-white px-6 py-2 rounded hover:bg-red-600">
-					Delete product from cart
+					Remove product
 				</button>
 			</div>
 		</div>
