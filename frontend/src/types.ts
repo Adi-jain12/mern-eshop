@@ -1,12 +1,15 @@
 export type Product = {
 	_id: string;
-	user: string;
-	productName: string;
-	city: string;
-	country: string;
+	name: string;
+	description: string;
+	stock: number;
+	imageSrc: string;
+	unitPrice: number;
 	deliveryPrice: number;
-	estimatedDeliveryTime: number;
-	cuisines: string[];
-	imageUrl: string;
-	lastUpdated: string;
+	color: string;
+	updatedAt: string;
 };
+
+// export type ProductResponse = {
+// 	data: Product[];
+// };

@@ -1,25 +1,30 @@
+import { addItem } from '@/features/cart/cartSlice';
+import { useFetchProductDetails } from '@/features/products/product-api-client';
 import ProductDetails from '@/features/products/ProductDetails';
-import { useState } from 'react';
-import { useParams } from 'react-router';
-
-export type CartItem = {
-	_id: string;
-	name: string;
-	price: string;
-	quantity: number;
-};
+import { Product } from '@/types';
+import { useDispatch } from 'react-redux';
 
 const ProductDetailsPage = () => {
-	const { productId } = useParams();
+	const dispatch = useDispatch();
+	const { productDetails, isLoading } = useFetchProductDetails();
 
-	const [cartItems, setCartItems] = useState<CartItem[]>();
+	const handleAddtoCart = (productItem: Product) => {
+		if (productItem) {
+			dispatch(addItem(productItem));
+		}
+	};
+
+	if (isLoading) return <p>Loading...</p>;
 
 	return (
 		<div className="grid grid-cols-[30rem_1fr] h-screen">
 			<div className="bg-slate-200">Image</div>
 
 			<div className="flex flex-col m-12">
-				<ProductDetails onAddtoCart={() => setCartItems(item)} />
+				<ProductDetails
+					product={productDetails}
+					onAddtoCart={handleAddtoCart}
+				/>
 
 				<div className="flex flex-col mt-10 text-gray-700">
 					<span className="text-md font-bold text-gray-700 mb-2">
